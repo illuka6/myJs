@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let hight=1.7;
+        let weight=300;
+        let bmi=weight/(hight*hight);     
+        bmi=bmi.toFixed(2); //數值轉字串
+        bmi=Number(bmi); //字串轉數字
+        
+        //測試用
+        bmi=40;
+
+
+        console.log(bmi);
+
+        //檢查bmi落在哪個區間並顯示結果
+        if (bmi<18.5) {
+            //檢查條件成立
+            console.log(`體重過輕`);
+        }
+        // 區間資料取交集 使用邏輯運算子&&(AND)
+        // 檢查18.5<bmi<24
+        if (bmi>=18.5 && bmi<24) {
+            console.log(`正常範圍`);
+        }
+        
+        
+        if (bmi>=24 && bmi<27) {
+            console.log(`異常範圍-過重`);
+        }
+        if (bmi>=27 && bmi<30) {
+            console.log(`異常範圍-輕度肥胖`);
+        }
+        if (bmi>=30 && bmi<35) {
+            console.log(`異常範圍-中度肥胖`);
+        }
+        if (bmi>=35) {
+            console.log(`異常範圍-重度肥胖`);
+        }
+        
+
+        
+
+    </script>
+</body>
+</html>
+
+
+
+

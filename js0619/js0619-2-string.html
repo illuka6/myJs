@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--字串變數-->
+    <!-- 駝峰式命名 -->
+    <!--大駝峰:單字首字大寫-->
+    <!--小駝峰:第二個單字開始字首大寫-->
+    <script>
+        let dogName="建仔";
+        console.log(`毛孩名字:${dogName}`);
+        //dogAge=7;  //js可以不宣告變數直接使用,但仍建議對每個變數進行宣告
+        let dogAge=7;
+        console.log(`毛孩年紀:${dogAge}歲`); 
+        dogAge="7"; //自此dogAge資料型態轉為字串
+        //取得(確認)資料型態方法=>typeog(變數名)
+        console.log(typeof(dogAge));
+        //未轉換為數值運算 只出現字串串接結果
+        console.log(`毛孩五年後年齡:${dogAge+5}歲`);
+        //轉換為數值運算(暫時性 非改變變數資料型態)
+        console.log(`毛孩五年後年齡:${Number(dogAge)+5}歲`);
+        //真正要字串轉數值 必須重新指派轉換結果給原來的變數
+        dogAge=Number(dogAge);
+        console.log(typeof(dogAge));
+
+        //帶有小數點的資料=>浮點數
+        let pi=3.14;
+        let r=6;
+        let area= pi*r*r;
+        console.log(area);
+        console.log(parseInt(area)); // parseInt() 無條件捨去數值到整數位
+        console.log(area.toFixed(2)); // .toFixed() 將數值取小數點後兩位,並將轉數值轉成字串    
+        //console結果字串黑色=>字串 藍色=>數值
+        console.log(Number(area.toFixed(2))+1); //此時若要運算必須使用Number()轉換
+        
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
