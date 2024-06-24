@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 使用輸入視窗prompt
+        // 輸入分數
+
+        let score;
+        score = window.prompt('請輸入您的分數', '60'); // ,後是預設值 使用字串
+        //3.檢查是否按了取消
+        if (score == null) /*null必須在字串形式下才能判端,轉變為數值則無法*/ {
+            console.log('您按了取消');
+        } else 
+            //檢查分數是否空白
+            if(score==''){
+                console.log('分數不能空白');
+            }else{ 
+                // 2.檢查是否為有效分數範圍
+                score = Number(score);
+                console.log(score);
+                //檢查是否為非數值的字串轉換後為NaN
+                if (isNaN(score)) {
+                    console.log('輸入的分數err');
+                }
+
+
+                if (score < 0 || score > 100) {
+                    console.log(score + '不是有效分數範圍');
+                } else
+                    // 1.檢查是否及格
+
+                    if (score >= 60) {
+                        console.log('及格');
+                    } else if (score < 60) {
+                        console.log('不及格');
+                    }
+            }
+
+
+    </script>
+</body>
+
+</html>
