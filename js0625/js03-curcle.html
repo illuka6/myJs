@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//請用for迴圈寫出1-5
+for (let i=1;i<=5;i++) { 
+    // i++ => i=i+1
+    // i-- => i=i-1
+    console.log(i);
+    document.write('*<br>');
+    // document.write('*'+'<br>'); //與上行相同意思
+}    
+    //算1-10合計
+    // let tot=0;
+    // let i=1;
+    // s=s+i;
+    // i=2;
+    // s=s+i;
+    // i=3;
+    // s=s=i;
+let s=0;
+let i;
+for(i=1;i<=10;i++){ //i建立在迴圈內,生命週期只在{}內,在外顯示uncaughted
+    // let不能重複宣告 var可以
+    s = s+i; //累計
+}
+// 迴圈結束後,顯示s,i結果
+console.log(`1+2+3+4+...+10=${s}`);
+console.log(`i=${i}`);
+
+
+    </script>
+</body>
+</html>

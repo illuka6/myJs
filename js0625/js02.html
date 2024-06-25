@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //輸入血型(注意大小寫不同)
+        //A,a=>A型
+
+
+        // if (btype == null) { //一定要用雙等於
+        //     console.log('您按了取消');
+        // } else if (btype == '') {
+        //     console.log('您沒有輸入');
+        // } else if (btype == 'a' || btype == 'A') {
+        //     console.log('A型');
+        // } else if (btype == 'b' || btype == 'B') {
+        //     console.log('B型');
+        // } else if (btype == 'o' || btype == 'O') {
+        //     console.log('O型');
+        // } else {
+        //     console.log('輸入錯誤');
+        // }
+
+
+        // .trim()=>去除資料前後多餘空白 字與字之間空白不會被清除
+        let btype = prompt('請輸入血型=>使用if-else-if');
+
+        // 也可直接寫成 btype= window.promtp
+
+
+        if (btype == null) { //一定要用雙等於
+            console.log('您按了取消');
+            document.write('您按了取消');
+        } else {
+            //按了確定
+            //1. 去除空白的內容是沒有結果
+            btype = btype.trim().toLowerCase(); //轉換所有字元到小寫 ,放到最上面的話判斷取消null會錯誤
+            //2. 檢查血型代號
+            if (btype == '') { //去除空白後的結果是沒有內容
+                console.log('您沒有輸入');
+                document.write('您沒有輸入');
+            } else if (btype == 'a') {
+                console.log('A型');
+                document.write('A型');
+            } else if (btype == 'b') {
+                console.log('B型');
+                document.write('B型');
+            } else if (btype == 'o') {
+                console.log('O型');
+                document.write('O型');
+            } else if (btype == 'ab') {
+                console.log('AB型');
+                document.write('AB型');
+            } else {
+                console.log('輸入錯誤');
+            }
+        }
+document.write('<br>'); //換行
+
+        let btype2 = prompt('請輸入血型=>switch');
+
+        if (btype2 == null) {
+            document.write('按了取消');
+        } else {
+            //按了正確
+            switch (btype2.trim().toUpperCase()) {  //判定沒有取消後再轉換消除空格
+                case '':
+                    document.write('您沒有輸入');
+                    break;
+                case 'A': //switch 資料可用逗號隔開
+                    document.write('A型');
+                    break;
+                case 'B':
+                    document.write('B型');
+                    break;
+                case 'O':
+                    document.write('O型');
+                    break;
+                case'AB':
+                    document.write('AB型');
+                    break;
+                default:
+                    document.write('輸入錯誤');
+                    
+            }
+        }
+//換行
+document.write('<br>');
+
+        let btype3 = prompt('請輸入血型=>switch2');
+
+        if (btype3 == null) {
+            document.write('按了取消');
+        } else {
+            //按了正確
+            switch (btype3.trim()) {    //判定沒有取消後再轉換消除空格
+                case '':
+                    document.write('您沒有輸入');
+                    break;
+                case 'A': //switch 資料不可用逗號隔開,只會抓到最後的
+                case'a': //要並列寫
+                    document.write('A型');
+                    break;
+                case 'B','b':
+                    document.write('B型');
+                    break;
+                case 'O','o':
+                    document.write('O型');
+                    break;
+                case'AB','ab':
+                    document.write('AB型');
+                    break;
+                default:
+                    document.write('輸入錯誤');
+                    
+            }
+        }
+
+    </script>
+</body>
+
+</html>
