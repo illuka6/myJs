@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //ex5:請用一個迴圈 找出1-10中 迴圈結束後才顯示結果=>3到5的倍數
+        // 建立一個存放3倍數的變數
+        let str3 = ''; //空字串=>連續兩個單引號或雙引號,中間不要空白鍵
+        console.log(str3);
+        let str5 = ''; //空字串=>連續兩個單引號或雙引號,中間不要空白鍵
+        console.log(str5);
+        let str3b = ''; //存放3的倍數內容 但是3+6+9+... 帶有加號        
+        let str5b = ''; //存放5的倍數內容 但是5+10+... 帶有加號        
+        let tot5=0;
+        let tot3=0;
+
+        for (i = 1; i <= 10; i++) {
+            if (i % 3 === 0) {
+                // 找出三的倍數
+                str3 = str3 + i + ' ';  //""+3="3" //個別保存起來(串接)
+                //str3 += i+' ';  此簡寫加號跟等號之間不可以空白
+                str3b += i;  //此簡寫加號跟等號之間不可以空白
+                if (i != 9) {
+                    str3b += '+'; //不是9的時候,才加上'+'
+                }
+                //累計3的倍數加總
+                tot3=tot3+i;
+                //演算過程
+                //i=3 => tot3+i = 0+3 = 3
+                //i=6 => tot3+i = 3+6 = 9
+                //i=9 => tot3+i = 9+9 = 18
+                
+
+            }
+            else if (i % 5 === 0) {
+                // 找出五的倍數
+                str5 = str5 + i + ' '; //個別保存起來(串接) 若只寫str5=i 只是定義str5=最後的i
+                str5b = str5b + i ; //個別保存起來(串接) 若只寫str5=i 只是定義str5=最後的i
+                if(i != 10){
+                    str5b+='+';
+                }
+                //累計5的倍數加總
+                tot5+=i;
+
+            }
+        }
+
+        // 迴圈結束露再顯示結果
+        document.write(`1-10中3的倍數:${str3}<br>`); //字串字面值寫法,使用反引號
+        document.write(`1-10中5的倍數:${str5}`); //字串字面值寫法,使用反引號
+        document.write("<br>1-10中3的倍數:" + str3 + "<br>1-10中5的倍數:" + str5); //一般串接方式
+        document.write(`<hr>`);
+        document.write(`1-10中3的倍數合計為:${str3b},結果為:${tot3}<br>`);
+        document.write(`1-10中5的倍數合計為:${str5b},結果為:${tot5}<br>`);
+
+
+        // i=i+2 => i+=2
+        // i=i-8 => i-=8 
+
+
+    </script>
+</body>
+
+</html>

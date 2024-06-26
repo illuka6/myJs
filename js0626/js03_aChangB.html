@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // //ex7:彈出輸入視窗
+        // //輸入運算起始值1
+        // //輸入運算結束值10
+        // //算出奇數和25
+        // //算出偶數和30
+        // let a = Number(prompt('請輸入起始值'));
+        // //注意要加Number() 將字串轉換成數值,後面迴圈內運算才不會出錯 
+        // let b = Number(prompt('請輸入結束值'));
+        // let tot1 = 0,tot2 = 0; //可以逗號寫同一行
+        // //起始值>結束值
+        // //起<迄?
+        let a = (prompt('請輸入起始值'));
+        let b = (prompt('請輸入結束值'));
+        let tot1 = 0,tot2 = 0; //可以逗號寫同一行
+
+        if (a == null ||b == null) {
+            document.write('按了取消');}
+        else {if (a >= b) {//兩數調換過程 需有第三數暫存值
+            let tmp = a;
+            a = b;
+            b = tmp;
+        }
+        for (let i = a; i <= b; i++) {
+            if (i % 2 === 1) {
+                tot1 = tot1 + i;
+            }
+            else /*if (i % 2 === 0)  可省略 因奇數以外即偶數*/ {
+                tot2 += i;
+            }
+        }}
+        console.log(`${a}到${b}的奇數和=>${tot1}`);
+        console.log(`${a}到${b}的偶數和=>${tot2}`);
+        document.write(`<br>奇數總和為${tot1}<br>`);
+        document.write(`<br>偶數總和為${tot2}<br>`);
+
+
+
+
+
+    </script>
+</body>
+
+</html>

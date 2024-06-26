@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //let a = Math.random()
+        let bingoNum = 99;
+        //生成正確答案
+        //輸入數字
+        //判定是否與答案數字相同
+
+
+
+
+        for (let i = 1; i <= 3; i++) {
+            let a = Number((prompt('請輸入數字(3次)')));
+            console.log('a');
+            
+            if (a === bingoNum) { //不能只用一個等於.總忘記
+                document.write(`第${i}次:答對了<br>`);
+            } else {
+                document.write(`第${i}次:你猜${a},答錯了<br>`);
+            }
+            
+            if (i >= 3 && a !== bingoNum) {
+                document.write('挑戰失敗');
+            }
+
+
+
+
+        }
+
+    </script>
+</body>
+
+</html>
