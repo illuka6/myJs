@@ -9,33 +9,42 @@
 
 <body>
     <script>
+
+        // 內定一個數字結果 => let bingoNum = 99
+        // 彈出輸入視窗，輸入數字
+        // 最多能夠猜3次
         //let a = Math.random()
         let bingoNum = 99;
-        //生成正確答案
-        //輸入數字
-        //判定是否與答案數字相同
+
+
 
 
 
 
         for (let i = 1; i <= 3; i++) {
-            let a = Number((prompt('請輸入數字(3次)')));
-            console.log('a');
-            
-            if (a === bingoNum) { //不能只用一個等於.總忘記
-                document.write(`第${i}次:答對了<br>`);
-            } else {
+            let a = Number((prompt('請輸入數字(最多3次)')));
+            console.log(a);
+            if (i <= 2 && a === bingoNum) { //不能只用一個等於.總忘記
+                document.write(`第${i}次:你猜${a},答對了<br>`);
+                break; //沒想到可以這樣用......debug使人發瘋
+                // 如果不break 最後判斷的a為限定i=3的a值,因此只有第二次猜對時仍會顯示'挑戰失敗' 
+            }
+            else if (i === 3 && a === bingoNum) { //不能只用一個等於.總忘記
+                document.write(`第${i}次:你猜${a},答對了<br>`);
+            }
+            else if (i <= 3 && a !== bingoNum) {
                 document.write(`第${i}次:你猜${a},答錯了<br>`);
+                if (i === 3 && a !== bingoNum) {
+                    document.write('挑戰失敗');
+                }
             }
-            
-            if (i >= 3 && a !== bingoNum) {
-                document.write('挑戰失敗');
-            }
-
-
-
-
         }
+
+
+
+
+
+
 
     </script>
 </body>
