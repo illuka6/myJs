@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 請顯示1-100中,5的倍數值並加總
+        // 直到合計大於50就結束迴圈
+
+        // i=5,s=5
+        // i=10,s=15
+        //...
+        //i=25,s=75
+
+        //for
+        let s = 0
+        for (let i = 1; i <= 100; i++) {
+            if (i % 5 === 0) {
+                s = s + i;
+                console.log(`i=${i},s=${s}`);
+            }
+            if (s > 50) {
+                break;
+            }
+        }
+
+        //while
+        let i = 1;
+        s = 0; //沿用前面 所以重給值回到0
+        while (s <= 50) { //用s設條件
+            if (i % 5 === 0) {
+                s = s + i;
+                console.log(`i=${i},s=${s}`);
+
+            } i++;// i的值不能寫在裡面 否則要i%5==0時 i值才會增加
+        }
+        i = 1; //沿用前面 所以重給值回到1
+        s = 0; //沿用前面 所以重給值回到0
+        while (i <= 100) { //用i設條件 就需要在s>50時再判斷一次
+            if (i % 5 === 0) {
+                s = s + i;
+                console.log(`i=${i},s=${s}`);
+                if (s > 50) {
+                    break;
+                }
+            } i++;// i的值不能寫在裡面 否則要i%5==0時 i值才會增加
+        }
+
+        //do-while
+        i = 1; //沿用前面 所以重給值回到1
+        s = 0; //沿用前面 所以重給值回到0
+        do {i++; 
+            if (i % 5 === 0) {
+                s = s + i;
+                console.log(`i=${i},s=${s}`);
+            };        
+        } while (s <= 50);
+
+
+    </script>
+</body>
+
+</html>

@@ -27,6 +27,8 @@
             if (i <= 2 && a === bingoNum) { //不能只用一個等於.總忘記
                 document.write(`第${i}次:你猜${a},答對了<br>`);
                 break; //沒想到可以這樣用......debug使人發瘋
+                // if在迴圈內 才能使用break
+                // 中斷迴圈執行 並跳出迴圈到結尾的下一行
                 // 如果不break 最後判斷的a為限定i=3的a值,因此只有第二次猜對時仍會顯示'挑戰失敗' 
             }
             else if (i === 3 && a === bingoNum) { //不能只用一個等於.總忘記
@@ -40,6 +42,20 @@
             }
         }
 
+        //另一種寫法
+        let ans = 'n'; //預設沒猜對
+        for (let i = 1; i <= 3; i++) {
+            let a = (prompt('請輸入數字'));
+            document.write(`第${i}次:${a}`);
+            if (a === n) {
+                document.write('答對了');
+                ans = 'y'; //為了讓最後判斷ans是否被便為'猜對 將ans的值改變
+                break;
+            }
+            if (ans == 'n') { //直接最後另外拉出if來判斷 這樣不用跑3次判斷
+                document.write('挑戰失敗');
+            }
+        }
 
 
 

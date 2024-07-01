@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 1-10合計 -->
+    <script>
+        //let str1=''; //空字串 引號之間沒有空白鍵
+        //合計變數
+        let s1 = 0; //變數宣告要給初始值 避免跨太遠才給或直接運算 造成資料性質難以定義 出現運算錯誤
+        for (let i = 1; i <= 10; i++) {
+            s1 = s1 + i;
+            console.log(`i=${i},s1=${s1}`); //查看每次迴圈加總結果
+        }
+        console.log(`s1=${s1}`); //查看最後結果
+
+        let s2 = 0;
+        let i = 1;
+
+        //1.先檢查,再執行
+        //while(執行迴圈條件){...} 所以i變數宣告再外面,跟for的一起宣告在括號內不一樣
+        //並且迴圈內需改變i值
+        while (i <= 10) {
+            s2 = s2 + i;
+            i++; //需改變i的值 否則變成無窮迴圈
+            console.log(`i=${i},s2=${s2}`);//查看每次迴圈加總結果
+        }
+        console.log(`i=${i},s2=${s2}`);//查看最後結果
+
+        
+        
+    </script>
+</body>
+
+</html>
