@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 函式宣告與使用
+        // 無參數 無回傳值
+        function sayHi() {
+            alert('Hello');
+            document.write('Hello');
+            console.log('Hello');
+        }
+        // 呼叫函式 =>函式名稱()
+        sayHi();
+
+        // 函式宣告狀況二: 有參數,無傳回值
+        function sayHi2(strName) {
+            document.write('Hi,'+strName+'早安<br>');
+        }
+        // 函式內的Parameter (參數) (為已命名變量)不須另外宣告 
+        // 但無在外先宣告的話生命週期僅限於函式內,外面直接call strName會undefined
+        let inputName = prompt('請問怎麼稱呼?');
+        sayHi2(inputName);
+
+
+    </script>
+</body>
+
+</html>

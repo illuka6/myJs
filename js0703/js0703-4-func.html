@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 有參數 有回傳值
+        function chkScore(intScore) {
+            if (intScore >= 60) {
+                // document.write('及格');
+                return '及格';
+                // return =>結束函數,並將結果往外丟
+            } else {
+                // document.write('不及格');
+                return '不及格';
+            }
+        }
+        // let score = 50;
+        let score = Number(prompt('請輸入分數'));
+        // 函數內return 外面要有變數(此處為result)存放 return的結果
+        // 只是呼叫函式不會看到return的內容
+        chkScore(score);
+        let result =chkScore(score);
+        // 顯示出變數內容(即return的內容):
+        document.write(result);
+        
+        // 分數２
+        score = Number(prompt('請輸入分數'));
+        result =chkScore(score);
+        document.write('分數2'+result);
+        // 分數３
+        score = Number(prompt('請輸入分數'));
+        result =chkScore(score);
+        document.write('分數3'+result);
+
+
+
+    </script>
+</body>
+
+</html>

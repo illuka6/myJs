@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 請輸入成績n次,直到輸入-1或取消就結束
+        /*
+        第一次分數:90
+        第二次分數:34
+        第三次分數:30
+        第四次分數:-1 ||取消
+        ---------------------
+        及格人數:2人
+        不及格人數:1人
+        總分:200分
+        總平均:66.67分
+        */
+        let score;
+        let stot = 0;
+        let stotevt = 0;
+        let paspp = 0;
+        let npaspp = 0;
+        for (let i = 1; i >= 0; i++) {
+            score = prompt('請輸入分數');
+            if (score == -1) {
+                document.write('輸入取消');
+                break;
+            } else if (score === null) {
+                document.write('輸入取消');
+                break;
+            } else if (score >= 60) {
+                paspp += 1;
+            } else {
+                npaspp += 1;
+            }
+            //判斷完是否無效輸入,再顯示在頁面上,不然會顯示 最後一次結果:null
+            document.write(`第${i}次分數:${score}<br>`); 
+            score = Number(score);
+            stot += score;
+            stotevt = (stot /i).toFixed(2);
+            console.log(stot);
+            console.log(i);
+            console.log(stotevt);
+        }
+
+
+        document.write(`<br>`);
+        document.write(`<br>及格人數:${paspp}人<br>`);
+        document.write(`不及格人數:${npaspp}人<br>`);
+        document.write(`總分:${stot}分<br>`);
+        document.write(`總平均:${stotevt}<br>`);
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

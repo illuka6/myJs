@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 請輸入成績n次,直到輸入-1或取消就結束
+        /*
+        第一次分數:90
+        第二次分數:34
+        第三次分數:30
+        第四次分數:-1 ||取消
+        ---------------------
+        及格人數:2人
+        不及格人數:1人
+        總分:200分
+        總平均:66.67分
+        */
+
+        // do {
+        //     let score = prompt('請輸入分數:');
+        //     if (score === '-1'||score==null) {
+        //         break;
+        //     }
+        // } while (true);
+        // console.log('結束了');
+        let count = 0;
+        let pass = 0; //及格人數
+        let fail = 0; //不及格人數
+        let tot = 0 ; //總分
+        let avg = 0; //總平均
+
+        while (true) { //不需要執行迴圈的條件
+            let score = prompt('請輸入分數:');
+            // 是否輸入-1或按了取消
+            if (score === '-1' || score == null) {
+                break;
+            }
+            // 是否為非數字
+            if(isNaN(score)){
+                alert('非數值，請重新輸入'); //彈出錯誤提示框
+                continue; //如果是非數字則不繼續往下執行,回到迴圈開始時重新輸入
+            }
+            
+            // 先判斷是否無效或取消輸入才轉數值,否則無法正確判斷
+            score = Number(score); //字串轉數值
+            // 是否為分數有效範圍=>0-100;
+            if(score<0||score>100){
+                alert('非有效分數(1-100)，請重新輸入'); //彈出錯誤提示框
+                continue; //如果是非數字則不繼續往下執行,回到迴圈開始時重新輸入
+            }
+            
+            // 及格與否
+            if (score >= 60) {
+                pass++; 
+            } else {
+                fail++;
+            }
+            //總分統計
+            tot=tot+score;
+            count++;//執行第N次
+        document.write(`第${count}次:${score}分<br>`);
+        
+        }
+        // console.log('結束了');
+        document.write('--------------------<br>');
+        document.write(`及格人數:${pass}人<br>`);
+        document.write(`不及格人數:${fail}人<br>`);
+        document.write(`及格人數:${tot}人<br>`);
+        // 總平均計算
+        avg = (tot / (pass + fail)).toFixed(2); //求平均到小數第二位
+        document.write(`總平均${avg}分`);
+
+
+    </script>
+</body>
+
+</html>

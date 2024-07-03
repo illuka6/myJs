@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 使用contune
+        // 當程式執行遇到contune時 contune後面的程式都不執行
+        // 直接回到迴圈起始位置
+        // 與 break結束迴圈不同 
+
+        // 1-100中5的倍數和
+        // for
+        let tot = 0;
+        for (let i = 1; i <= 100; i++) {
+            if (i % 5 != 0) {
+                continue;
+            }
+            tot += i
+            console.log(`${tot}`)
+        }
+        console.log(`--for--1-100中午的倍數和=${tot}`);
+        // while
+        tot = 0
+        let i=1
+        while (i<=100){
+            i++
+            if(i%5!=0){
+            continue;
+            }
+            tot+=i;
+        }console.log(`--while--1-100中午的倍數和=${tot}`);
+         // do while 
+        tot=0
+        i=0
+        do{
+            i++
+            if(i%5!=0){
+                continue;
+            }
+            tot+=i
+        }while(i<=100);console.log(`--do while--1-100中午的倍數和=${tot}`);
+
+// 結論
+// break =>結束迴圈
+// contune =>回到迴圈開始的位置
+
+
+    </script>
+</body>
+
+</html>
