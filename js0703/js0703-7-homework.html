@@ -1,13 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        //
+        // 猜數字：直到猜對才結束
+        // 用亂數產生一個值：60
+        // 輸入資訊顯示console.log()
+        // 第1次：50 => 太小了（提示：50-100）
+        // 第2次：90 => 太大了（提示：50-90）
+        // 第3次：80 => 太大了（提示：50-80）
+        // 第4次：55 => 太小了（提示：55-80）
+        // 第5次：60 => 猜對了
+
+        // console.log(Math.floor(Math.random()*100)); // 回傳 0 ~ 99
+        // console.log(Math.floor(Math.random()*100)+1); // 回傳 1 ~ 100
+        // 產生亂數給變數bingoNum
+        let bingoNum = Math.floor(Math.random() * 100) + 1;
+        console.log(bingoNum);
+
+        //      0     a    bingoNum    a    100
+        let count = 0;
+        while (true) {
+            let a = prompt('猜數字遊戲，請輸入猜的數字：');
+            count++
+            console.log(`第${count}次:猜${a}`);
+            s = a;
+            if (a == null) {
+                break;
+            }
+            if(isNaN(a)){
+                alert('非數值，請重新輸入'); //彈出錯誤提示框
+                continue; //如果是非數字則不繼續往下執行,回到迴圈開始時重新輸入
+            }
+            
+            if (a > bingoNum) {
+                alert(`第${count}次:猜${a} => 太大了（提示：0-${a})`);
+                continue;
+            }
+            else if (count >= 2 || a < bingoNum) {
+                alert(`第${count}次:猜${a} => 太小了（提示：${a}-100)`);
+                continue;
+            }
+            else if (a == bingoNum) {
+                alert(`猜對了`);
+                break;
+            }
+            
+            if (a < bingoNum) {
+                alert(`第${count}次:猜${a} => 太小了（提示：0-${a})`);
+                continue;
+            } else if (count >= 2 || a < bingoNum) {
+                alert(`第${count}次:猜${a} => 太小了（提示：${a}-100)`);
+                continue;
+            }
+            else if (a == bingoNum) {
+                alert(`猜對了`);
+                break;
+            }
+        }
+
     </script>
 </body>
+
 </html>
