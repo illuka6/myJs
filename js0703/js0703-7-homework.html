@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <button onclick="playGame();">猜數字開始</button>
     <script>
         // 猜數字：直到猜對才結束
         // 用亂數產生一個值：60
@@ -23,46 +24,100 @@
         // 產生亂數給變數bingoNum
         let bingoNum = Math.floor(Math.random() * 100) + 1;
         console.log(bingoNum);
+        alert (bingoNum);
 
         //      0     a    bingoNum    a    100
-        let count = 0;
-        while (true) {
-            let a = prompt('猜數字遊戲，請輸入猜的數字：');
-            count++
-            console.log(`第${count}次:猜${a}`);
-            s = a;
-            if (a == null) {
+        //      0     a    bingoNum    a    100
+
+        // while (true) {
+        //     let a = prompt('猜數字遊戲，請輸入猜的數字：');
+        //     if (a > bingoNum) {
+        //         alert(`太大了（提示：0-${a})`);
+        //         continue;
+        //     }
+        //     else if (a < bingoNum) {
+        //         alert(`太小了（提示：${a}-100)`);
+        //         continue;
+        //     }
+        //     else if (a == bingoNum) {
+        //         alert(`猜對了)`);
+        //     }
+        // }
+
+        let i = 0;
+        let curNum = 0;
+        let preNum = 0;
+        
+        function playGame() {  
+
+        for (i = 1; i >= 0; i++) {
+            preNum = curNum;
+            curNum = prompt('猜數字遊戲，請輸入猜的數字：');
+            //除輸入錯排bug
+            if (curNum == null) {
+                alert(`您取消了輸入`);
                 break;
             }
-            if(isNaN(a)){
-                alert('非數值，請重新輸入'); //彈出錯誤提示框
-                continue; //如果是非數字則不繼續往下執行,回到迴圈開始時重新輸入
-            }
-            
-            if (a > bingoNum) {
-                alert(`第${count}次:猜${a} => 太大了（提示：0-${a})`);
+            if (curNum > 100 || curNum < 1) {
+                alert(`無效輸入，請輸1-100間的數`)
                 continue;
             }
-            else if (count >= 2 || a < bingoNum) {
-                alert(`第${count}次:猜${a} => 太小了（提示：${a}-100)`);
+            if (isNaN(curNum)) {
+                alert('非數值，請重新輸入');
                 continue;
             }
-            else if (a == bingoNum) {
+
+            //判定
+            curNum = Number(curNum);
+
+            if (curNum == bingoNum) {
                 alert(`猜對了`);
                 break;
             }
+
+            if (i == 1 && curNum > bingoNum) {
+                alert(`第${i}次 :${curNum} => 太大了（提示：${preNum}-${curNum})`);
+            }
+            else if (i == 1 && curNum < bingoNum) {
+                alert(`第${i}次 :${curNum} => 太小了（提示：${curNum}-100)`);
+            }
+            else if (i >= 2 && curNum < bingoNum && curNum >= preNum) {
+                alert(`第${i}次 :${curNum} => 太小了（提示：${preNum}-${curNum})`);
+            }
+            else if (i >= 2 && curNum < bingoNum && curNum <= preNum) {
+                alert(`第${i}次 :${curNum} => 太小了（提示：${preNum}-100)`);
+            }
+            else if (i >= 2 && curNum > bingoNum && curNum <= preNum) {
+                alert(`第${i}次 :${curNum} => 太大了（提示：${curNum}-${preNum})`);
+            }
+            else if (i >= 2 && curNum > bingoNum && curNum >= preNum) {
+                alert(`第${i}次 :${curNum} => 太大了（提示：0-${preNum})`);
+            }}
+            /*
+            提示訊息部分 gpt幫我整理＆修正的邏輯判定 ：
             
-            if (a < bingoNum) {
-                alert(`第${count}次:猜${a} => 太小了（提示：0-${a})`);
-                continue;
-            } else if (count >= 2 || a < bingoNum) {
-                alert(`第${count}次:猜${a} => 太小了（提示：${a}-100)`);
-                continue;
-            }
-            else if (a == bingoNum) {
-                alert(`猜對了`);
-                break;
-            }
+                        let hint = "";
+                        if (curNum > bingoNum) {
+                            hint = `太大了`;
+                        } else if (curNum < bingoNum) {
+                            hint = `太小了`;
+                        }
+            
+                        let rangeHint = "";
+                        if (i === 1) {
+                            rangeHint = curNum > bingoNum ? `（提示：${preNum} - ${curNum})` : `（提示：${curNum} - 100)`;
+                        } else {
+                            if (curNum > bingoNum) {
+                                rangeHint = curNum >= preNum ? `（提示：0 - ${preNum})` : `（提示：${curNum} - ${preNum})`;
+                            } else {
+                                rangeHint = curNum >= preNum ? `（提示：${preNum} - 100)` : `（提示：${preNum} - ${curNum})`;
+                            }
+                        }
+            
+            
+                        console.log(`第${i}次，前次猜${preNum}`);
+                        console.log(`第${i}次，猜${curNum}`);
+                        */
         }
 
     </script>

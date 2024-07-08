@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 陣列
+        // 一維陣列 一定要100%熟悉
+        // 二維陣列 50%以上
+        // 多維陣列 知道即可
+        let arr1 = [50, 90, 100, 30, 60];
+        // 每個陣列都有編號(即: 索引值)
+        // 陣列編號預設從0開始=> [0,1,2,3,...,n] 陣列長度:最末編號+1
+        // 查找陣列長度: 陣列名稱.length
+        // 取出陣列值: 陣列名稱[索引值]
+        console.log('arr1陣列長度:' + arr1.length);
+        console.log('arr1陣列編號2的值:' + arr1[2]);
+        // 更改陣列值寫法 : 
+        arr1[2] = 99
+        console.log('arr1陣列編號2更改後的值' + arr1[2]);
+        // 請使用迴圈 顯示arr1所有值
+
+        let i = 0; //do 的 i 一定要在外面先宣告
+        do {
+            console.log(arr1[i]);
+            i++;
+        } while (i < arr1.length);
+        // i < 陣列長度編號 才會是剛好的陣列項數 若i <= arr1.length 會多1
+        // 多1維空值 若要運算會出錯 空值不能運算
+
+        for (let i = 0; i < arr1.length; i++) {
+            console.log(arr1[i]);
+        }
+        console.log('--------------');
+        // 找出最大值.最小值
+        let min = arr1[0];
+        let max = arr1[0];
+        for (let i=1; i <arr1.length; i++){
+            if(arr1[i]>max){
+                // 目前陣列值>最大值時 交換兩數
+                max=arr1[i]; //最大值= 目前陣列值
+            }else if(arr1[i]<min){
+                // 目前陣列值<最大值時 交換兩數
+                min=arr1[i]; //最小值= 目前陣列值
+            }
+        }
+        console.log(`最大值:${max}`);
+        console.log(`最大值:${min}`);
+
+
+
+
+
+        // 雙迴圈 || 氣泡排序法
+        // 請遞增陣列值 並排序出來
+        // 提示: 要有調換過程
+        // 1.預設最小值為陣列第一個值
+
+        for (let i = 0; i < arr1.length; i++) {
+            //2.檢查目前陣列值是否小於目前最小值
+            if (arr[i] < min) {
+                // 先把最小值前移
+                let tmp = arr[i];
+                // 重新指定最小值
+                min = arr[i];
+
+                arr[i + 1] = arr[i];
+                arr[i + 1] = min;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+        console.log(arr1[i]);
+        console.log(arr1[i]);
+
+        //  if (arr[i]<arr[i+1]){
+        //         return -1;
+        //     };
+        //  if (arr[i]<arr[i+1]){
+        //         return 1;
+        //     };
+
+    </script>
+</body>
+
+</html>

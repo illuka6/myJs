@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="playGame();">猜數字開始</button>
+    <script>
+        // 猜數字：直到猜對才結束
+        // 用亂數產生一個值：60
+        // 輸入資訊顯示console.log()
+        // 第1次：50 => 太小了（提示：50-100）
+        // 第2次：90 => 太大了（提示：50-90）
+        // 第3次：80 => 太大了（提示：50-80）
+        // 第4次：55 => 太小了（提示：55-80）
+        // 第5次：60 => 猜對了
+
+        // console.log(Math.floor(Math.random()*100)); // 回傳 0 ~ 99
+        // console.log(Math.floor(Math.random()*100)+1); // 回傳 1 ~ 100
+        // 產生亂數給變數bingoNum
+        let bingoNum = Math.floor(Math.random() * 100) + 1;
+        console.log(bingoNum);
+        alert(bingoNum);
+
+        //      0     a    bingoNum    a    100
+        //      0     a    bingoNum    a    100
+
+        // while (true) {
+        //     let a = prompt('猜數字遊戲，請輸入猜的數字：');
+        //     if (a > bingoNum) {
+        //         alert(`太大了（提示：0-${a})`);
+        //         continue;
+        //     }
+        //     else if (a < bingoNum) {
+        //         alert(`太小了（提示：${a}-100)`);
+        //         continue;
+        //     }
+        //     else if (a == bingoNum) {
+        //         alert(`猜對了)`);
+        //     }
+        // }
+
+        let i = 0;
+        let guessNum = 0;
+
+        /*
+        提示: 設定maxNum = 100 minNum = 1
+        再設定 guessNum
+        if (guessNum > maxNum) {
+        maxNum = guessNum;
+        }ekse if (guessNum < maxNum) {
+        minNum = guessNum;
+        }
+        */
+
+
+
+        for (i = 1; i >= 0; i++) {
+
+            curNum = prompt('猜數字遊戲，請輸入猜的數字：');
+            //除輸入錯排bug
+            if (curNum == null) {
+                alert(`您取消了輸入`);
+                break;
+            }
+            if (curNum > 100 || curNum < 1) {
+                alert(`無效輸入，請輸1-100間的數`)
+                continue;
+            }
+            if (isNaN(curNum)) {
+                alert('非數值，請重新輸入');
+                continue;
+            }
+
+            //判定
+            curNum = Number(curNum);
+
+            if (curNum == bingoNum) {
+                alert(`猜對了`);
+                break;
+            }
+
+
+        }
+        
+    </script>
+</body>
+
+</html>
