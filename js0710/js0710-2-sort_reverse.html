@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let arr1 = [100, 30, 100, 10, 3];
+        console.log('排序前:' + arr1);
+        // 遞增排序
+        // .sort()不能直接這樣用: arr1.sort(); 
+        // console.log('排序後:' + arr1); //結果:10,100,100,3,30 出錯
+        arr1.sort((a, b) => {
+            return a - b; //遞增 (a到b)
+        });
+        console.log('遞增排序後:' + arr1);
+        
+        arr1.sort((a, b) => {
+            return b - a; //遞增 (a到b)
+        });
+        
+        console.log('遞減排序後:' + arr1);
+        // 要先用sort()遞增或遞減排序過才能使用reverse()反轉排序
+        // sort()要排序一定要給參數
+        // 匿名或箭頭函式都不需要name
+        arr1.reverse();
+        console.log('遞減排序後:' + arr1);
+        arr1.reverse();
+        console.log('遞減排序後:' + arr1);
+        console.log(arr1);
+
+    </script>
+</body>
+
+</html>

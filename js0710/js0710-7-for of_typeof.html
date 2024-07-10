@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 顯示陣列中字串的值
+        let arr = [1, 2, 3, 5, 6, '12345'];
+        // typeof()=>檢查資料型別
+        //typeof() === "" 注意要用雙引號圍起種類名
+        
+        // for
+        console.log('-----for------');
+        for (let i = 0; i < arr.length; i++) {
+            if (typeof (arr[i]) === "string") { 
+                
+                console.log(arr[i]);
+            }
+        }
+
+        // for of
+        console.log('-----for of------');
+        for (let n of arr) {
+            if (typeof (n) === "string") {
+                console.log(n);
+            }
+
+        }
+        // .forEach =>方法method
+        console.log('-----forEach------');
+        arr.forEach((n) => {
+            if (typeof (n) === "string") {
+                console.log(n);
+            }
+        })
+        // .map =>方法method
+        console.log('-----map------');
+        arr.map((n) => {
+            if (typeof (n) === "string") {
+                console.log(n);
+            }
+        })
+        // 沒有return,直接log 就不用另外用變數接收
+        // 有用return時一定要變數接收不然會出錯
+    </script>
+</body>
+
+</html>

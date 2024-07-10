@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // map() => 將陣列中的值依指定的函式回傳結果
+
+        let arr1 = [1, 2, 3, 4, 5];
+        //for
+        let result = '';
+        for (let i = 0; i < arr1.length; i++) {
+            result += arr1[i] * 2 + ',';
+            console.log(arr1[i] * 2);
+        }
+        console.log(result);
+        //map()
+        let arrMap =
+            arr1.map((n) => {
+
+                return n * 2;
+            })
+        console.log(arrMap);
+        // 將arr陣列中的數值轉成字串後, 顯示結果
+        // .map()
+        // .toString()
+        let arrMapString = arr1.map((n) => {
+            return n.toString();
+        })
+        console.log(arrMapString);
+
+        // 使用 .map() 找出arr陣列中的奇數*5,偶數不變
+        let arrOdds = arr1.map((n) => {
+            if (n % 2 == 1) {
+                return n*5;
+            }
+            return n; //不變
+        });
+        console.log(arrOdds);
+
+    </script>
+</body>
+
+</html>
