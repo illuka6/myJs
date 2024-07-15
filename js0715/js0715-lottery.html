@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let lotarr = [];
+        console.log(`開獎前:【${lotarr}】`);
+
+        do {
+            let r1 = Math.floor(Math.random() * 49) + 1;
+            // 尋找陣列中是否存在
+            // indexOf(item)
+            let result = (lotarr.indexOf(r1));
+            console.log(r1);
+            if (result == -1) {
+                lotarr.push(r1);
+            }
+        }
+        while (lotarr.length < 6);
+        console.log('開獎六碼:' + lotarr);
+        //遞增 arr.sort((a,b)=> {})
+        lotarr.sort((a, b) => {
+            return a - b; //遞增 (a到b)
+        });
+        console.log('遞增排序六碼:' + lotarr);
+        let r2 = Math.floor(Math.random() * 49) + 1;
+        console.log(`遞增排序六碼: ${lotarr}  ,特別號: ${r2}`);
+
+    </script>
+</body>
+
+</html>
