@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 建立函式時機點
+        // 被動執行 function Name(){...}
+        // 立即執行 匿名函式 function(){...}   箭頭函式 ()=>{}
+        //建立函式
+        // function roo(r) { r=Math.floor(Math.random() * 49) + 1; return r; } //一般函式
+        // function roo() { return Math.floor(Math.random() * 49) + 1; } //一般函式
+        const r = (max) => { return Math.floor(Math.random() * max) + 1 } //箭頭函式
+
+        // 大樂透 六碼1-49 一碼特別號1-49
+        // 威力彩 六碼1-38 一碼第二區1-8
+        // 今彩539 五碼1-38 
+        // item 樂透代號
+        // count 第一區的號碼次數
+        // no1 第一區最大值
+        // no2 第二區最大值
+
+
+        function getlotNum(item, count, no1, no2 = 0) {
+            // let item = lotGameGo;
+            let funarr = [];
+            // 取出第一區:6個號碼(1-49)
+
+            while (funarr.length < count) {
+                //建立亂數變數
+                let rs = r(no1);
+                // 尋找陣列中是否存在
+                // indexOf(item)
+                let result = funarr.indexOf(rs);
+                console.log(rs);
+                if (result == -1) {
+                    funarr.push(rs);
+                }
+            };
+            console.log(`排序前順序: ${funarr}`);
+
+            funarr.sort((a, b) => { return a - b; });
+            console.log(`排序後順序: ${funarr}`);
+
+            // 取第二區
+            let rss = r(no2);
+            if (item == '1' || item == '2') {
+                console.log(`第二區:${rss}`)
+            };
+        }
+
+        // 跳多字元符號 => \n =>換行
+        let lotGameGo = prompt(`請輸入樂透號碼代號 => \n1. 大樂透 2.威力彩 3.今彩539 `);
+        //產生樂透號碼
+        // switch
+        // switch (lotGameGo) {
+        //     case '1':
+        //         getlotNum('1', 6, 49, 49);
+        //         break;
+        //     case '2':
+        //         getlotNum('2', 6, 38, 8);
+        //         break;;
+        //     case '3':
+        //         getlotNum('3', 5, 39);
+        //         break;;
+        //     default:
+        //         console.log('err! 輸入錯誤')
+        //         break;
+        // }
+
+        if (lotGameGo == '1') { 
+            getlotNum('1', 6, 49, 49);
+        }else if (lotGameGo == '2') { 
+            getlotNum('2', 6, 38, 8);
+        } else if (lotGameGo == '3') {
+            getlotNum('3', 5, 39);
+        } else {
+            console.log('err! 輸入錯誤');
+        }
+    </script>
+</body>
+
+</html>

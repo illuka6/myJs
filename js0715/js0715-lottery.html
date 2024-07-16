@@ -16,7 +16,7 @@
             let r1 = Math.floor(Math.random() * 49) + 1;
             // 尋找陣列中是否存在
             // indexOf(item)
-            let result = (lotarr.indexOf(r1));
+            let result = lotarr.indexOf(r1);
             console.log(r1);
             if (result == -1) {
                 lotarr.push(r1);
@@ -31,6 +31,63 @@
         console.log('遞增排序六碼:' + lotarr);
         let r2 = Math.floor(Math.random() * 49) + 1;
         console.log(`遞增排序六碼: ${lotarr}  ,特別號: ${r2}`);
+
+
+        // for方法 設i<6
+        let arrNum = [];
+        for (let i = 0; i < 6; i++) {
+            let lotNum = Math.floor(Math.random() * 49) + 1;
+            //檢查是否存在此號碼
+            if (arrNum.indexOf(lotNum) == -1) {
+                // 沒有重複,則加入陣列
+                arrNum.push(lotNum);
+            } else {
+                console.log(`在編號${i}位置,${lotNum}重複了`)
+                i = i - 1; //這裡不能省略,否則數字重複時會少碼
+            }
+        }
+        console.log(arrNum);
+
+
+        // 建立函式時機點
+        // 被動執行 function Name(){...}
+        // 立即執行 匿名函式 function(){...}   箭頭函式 ()=>{}
+
+
+
+        //建立函式
+        let funarr = [];
+        // function roo(r) { r=Math.floor(Math.random() * 49) + 1; return r; } //一般函式
+        // function roo() { return Math.floor(Math.random() * 49) + 1; } //一般函式
+        const roo = () => { return Math.floor(Math.random() * 49) + 1 } //箭頭函式
+        function getlotNum() {
+            do {
+                //建立亂數變數
+                let rs = roo();
+                // 尋找陣列中是否存在
+                // indexOf(item)
+                let result = funarr.indexOf(rs);
+                console.log(roo(rs));
+                if (result == -1) {
+                    funarr.push(rs);
+                }
+            }
+            while (funarr.length < 6);
+console.log(`六碼: ${funarr},特別號: ${+roo()}`);
+        }
+        
+
+
+        // 跳多字元符號 => \n =>換行
+        let lotGameGo = prompt(`請輸入樂透號碼代號 => \n1. 大樂透 2.威力彩 3.今彩539 `);
+        //產生樂透號碼
+        if (lotGameGo=1 || 2){
+            getlotNum()
+        }else {
+            
+        }
+
+
 
     </script>
 </body>
