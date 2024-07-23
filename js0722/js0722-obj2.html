@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 建立物件樣板
+        // 習慣物件樣板名稱字首大寫
+        // 1.建立物件樣板成員
+        function Sdata(no, name, htmlScore, cssScore, jsScore) {
+            // this代表物件本身自己
+            // 物件成員:
+            this.sid = no;
+            this.sName = name;
+            this.html = htmlScore;
+            this.css = cssScore;
+            this.javascript = jsScore;
+            // 方法成員:
+            this.showData = function () {
+                console.log(`${this.sid}同學${this.sName},成績總分為${this.html + this.css + this.javascript}分`); //空值與空值不能運算,得NaN
+            }
+        }
+        // 2.使用物件樣板
+        // 傳值給物件樣板中的參數
+        let s1 = new Sdata('s001', '王曉明', 100, 100, 100);
+        // 呼叫物件樣板中的方法
+        s1.showData();
+
+        let s2 = new Sdata('s002', '張三', 99, 99, 99)
+        s2.showData();
+
+        let s3 = new Sdata('s003', '李四', 98, 98, 98)
+        s3.showData();
+
+
+        // 計算全班各科總分
+        // 方法一
+        console.log("全班同學各科總分:");
+        console.log("html: " + (s1.html + s2.html + s3.html));//值要括號優先運算,否則被當字串串聯
+        console.log("css: " + (s1.css + s2.css + s3.css));
+        console.log("javascript: " + (s1.javascript + s2.javascript + s3.javascript));
+        // 方法二: 陣列物件
+        // 宣告陣列
+        let arrObj = [s1, s2, s3];
+        // console.log(arrObj); //Sdata ,Sdata, Sdata
+        //可以同行宣告變數,不同變數用逗號隔開:
+        let totHtml = 0, totCss = 0, totJS = 0; 
+        // 陣列值以迴圈累加:
+        for (let i = 0; i < arrObj.length; i++) {
+            totHtml= totHtml+arrObj[i].html;
+            totCss= totCss+arrObj[i].css;
+            totJS+=arrObj[i].javascript;
+        }
+        console.log('htmL總分:'+totHtml);
+        console.log('CSS總分:'+totCss);
+        console.log('JS總分:'+totJS);
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+<body>
+<script>
+    // 建立學生成績物件
+    // 1.建立空白物件
+    let obj = new Object();
+    // 2.建立物件成員
+    obj.sid='s001';
+    obj.sName='1號同學';
+    obj.html=100;
+    obj.css=100;
+    obj.javascript=100;
+    // 顯示物件全部內容
+    console.log(obj);
+
+    function Obj(sid,sName,html,css,javascript){
+        this.sid=sid;
+        this.sName=sName;
+        this.html=html;
+        this.css=css;
+        this.javascript=javascript;
+    }
+
+    let s2=new Obj('s002','2號同學',99,'99','99'
+    );
+    console.log(s2.sName);
+    let s3=new Obj('s003','3號同學',98,'98','98'
+    );
+    console.log(s2.html+s3.html);
+</script>
+</body>
+</html>

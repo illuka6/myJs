@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 建立一個加法運算函式add()
+        // 當呼叫函示的[參數值的個數]與[參數個數]不一定相同時
+        // 可以使用[其餘參數]寫法
+        // 語法為三個連續點=>... =>參數資料會形成一個陣列
+
+        // function add(n1=0, n2=0, n3=0) {
+        function add(...number) {
+            // 預設參數值是為了避免空值造成的錯誤
+            let tot = 0;
+            // 處理加法運算
+            // 使用迴圈取得參數資料
+            console.log(number);
+
+            // 1. 一般for迴圈寫法
+            // for(let i=0 ; i<number.length ; i++ ){
+            //     tot+=number[i];
+            // }
+
+            // 2.使用for-of
+            for (let n of number) {
+                // 直到number陣列的迴圈依序跑完,迴圈結束
+                tot+=n;
+            }
+            // 回傳結果出去
+            return tot;
+        }
+        console.log(add(5, 3));
+        console.log(add(5, 3, 5));
+        console.log(add(5, 3, 5, 3));
+        console.log(add(5, 3, 5, 3, 5));
+        console.log(add(5, 3, 5, 3, 5, 3));
+
+
+
+    </script>
+</body>
+
+</html>
