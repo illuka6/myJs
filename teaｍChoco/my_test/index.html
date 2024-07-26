@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collapsible List</title>
+    <style>
+     
+        .collapsible {
+            cursor: pointer;
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+            background-color: #f1f1f1;
+            border-radius: 4px;
+            margin-top: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .collapsible:hover {
+            background-color: #e0e0e0;
+        }
+
+        .content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-top: none;
+            display: flex;
+        }
+
+        .content.show {
+            max-height: 1000px;
+            /* Adjust as needed */
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Styled Collapsible List Example</h2>
+<div class="btn_list">
+<button class="collapsible">Section 1</button>
+<div class="content">
+    <p>This is the content of Section 1. It can be quite long and should be fully visible when expanded.</p>
+</div>
+
+<button class="collapsible">Section 2</button>
+<div class="content">
+    <p>This is the content of Section 2. It can be quite long and should be fully visible when expanded.</p>
+</div>
+</div>
+    <script>
+        document.querySelectorAll('.collapsible').forEach(button => {
+            button.addEventListener('click', () => {
+                // Toggle the 'show' class to control the visibility of content
+                const content = button.nextElementSibling;
+                content.classList.toggle('show');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
