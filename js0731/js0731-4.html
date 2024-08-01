@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>HTML</li>
+        <!-- <li>CSS</li> -->
+    </ul>
+    <form action="">
+        <input type="text" id="txt1">
+        <input type="button" id="btn" value="加入">
+
+    </form>
+    <script>
+
+        // 取得按鈕事件
+        let myBtn = document.querySelector('#btn');
+        myBtn.addEventListener('click', () => {
+            
+            // 取得文字方塊內容
+            let newList = document.querySelector('#txt1');
+            console.log(newList.value);
+
+            // 1.建立新結點 => li
+            let newElm = document.createElement('li');
+            // 2.建立文字結點 => 文字方塊內容
+            let newText = document.createTextNode(newList.value);
+            // 3.將文字結點加入到新節點 =>CSS
+            newElm.appendChild(newText);
+            // 4.取得要加入心節點的位置
+            // let getUL = document.getElementsByTagName('ul');
+            // 不能用getElementsByTagName('ul'),因為
+            let getUL = document.querySelector('ul');
+            // 5.將新結點加入到ul元素的最後一個子結點
+            getUL.appendChild(newElm);
+        });
+    </script>
+</body>
+
+</html>
