@@ -68,7 +68,7 @@
             myNodelist[i].appendChild(span);
         }
 
-        // 刪除第一個li
+     /*    // 刪除第一個li
         btn2.addEventListener('click', () => {
             // 取得第一個li 要加中括號[]指定項目
             let removeElm = document.getElementsByTagName('li')[0];
@@ -77,32 +77,19 @@
             let parentElm = removeElm.parentNode;
             // 從父元素移除第一個li子節點
             parentElm.removeChild(removeElm);
-        })
+        }) */
 
-
-        /*      邏輯錯誤:會刪掉所有list    document.querySelectorAll('.close').addEventListener('click',()=>{
-                 for (let i = 0; i < myNodelist.length; i++) {
-                 let removeElm2 = document.getElementsByTagName('li')[i];
-                 let parentElm2 = removeElm2.parentNode;
-                  parentElm2.removeChild(removeElm2);
-                 }
-                 })
-        
-                  */
-
-
-        /* 這裡的這段若移除只留下方按鈕事件內的, 就會一定要使用過[按鈕事件:加入LIST or 使用'刪除'按鈕]才能從span刪除*/
-        //querySelectorAll 返回的是 NodeList,因此用forEach 為每個具有 'close' 類別的元素添加事件監聽器
-        document.querySelectorAll('.close').forEach(span => {
-            span.addEventListener('click', () => {
-                // 刪除點擊的 span 所在的 li 元素
-                // 使用 span.parentElement 來獲取 span 所在的 li 元素
-                let liElement = span.parentElement;
-                liElement.remove();
-            });
-        });
-
-       
+        //按下x,刪除對應的li
+        let close = document.getElementsByClassName('close');
+        for (i = 0; i < close.length; i++) {
+            close[i].onclick = function() {
+                let curLi = this.parentNode;
+                curLi.style.display = 'none';
+                // curLi.style.color = 'red';
+                /* 刪除線 */
+                // curLi.style.textDecoration = 'line-through';
+            }
+        }
 
 
         // 取得按鈕事件
@@ -130,14 +117,15 @@
                 li.appendChild(span);
 
                 // 新增刪除功能
-                /* 這裡的這段若移除只保留上面,則新增的list無法刪除 */
-                document.querySelectorAll('.close').forEach(span => {
-                    span.addEventListener('click', () => {
-                        // 刪除點擊的 span 所在的 li 元素
-                        let liElement = span.parentElement;
-                        liElement.remove();
-                    });
-                });
+                span.onclick = function() {
+                    delLi();
+                }
+                function delLi() {
+                    let curLi = this.parentNode;
+                    curLi.style.display = 'none';
+
+                }
+
                 /* 
                                 myClose = document.getElementsByClassName('close');
                                 console.log(myClose);
@@ -154,6 +142,12 @@
         // 刪除li
         let myClose = document.getElementsByClassName('close');
         console.log(myClose);
+
+
+
+
+
+
 
     </script>
 </body>

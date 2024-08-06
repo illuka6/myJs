@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .item span {
+        cursor: pointer;
+        background-color : yellow;
+        border-color: aqua;
+    }
+</style>
+<body>
+    <div class="item">
+        <span onclick="changeToAbout()">關於我</span>
+        <span onclick="changeToExps()">學經歷</span>
+        <span onclick="changeToContact()">聯絡我</span>
+    </div>
+    <hr>
+    <div id="about">大家好,我是xxx</div>
+    <div id="exps" style="display: none;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, tempore harum?
+        Assumenda architecto unde obcaecati eaque placeat officia provident. Dolore eligendi aliquid debitis unde
+        excepturi saepe, pariatur nisi iusto eos.</div>
+    <div id="contact" style="display: none;">
+        email:fjiwl@fjiore.com
+        mobile:093740383
+    </div>
+    <script>
+
+        // 為了讓變數能跨函式使用,宣告在函式外面
+        let aboutDiv = '';
+        let expsDiv = '';
+        let contactDiv = '';
+
+        function getDiv() {
+            // 1.先取得操作標籤
+            aboutDiv = document.querySelector('#about');
+            expsDiv = document.querySelector('#exps');
+            contactDiv = document.querySelector('#contact');
+            // 2.在對標籤div操作
+            aboutDiv.style.display = 'none';
+            expsDiv.style.display = 'none';
+            contactDiv.style.display = 'none';
+        }
+
+        // 關於我
+        function changeToAbout() {
+            // 先取得操作標籤
+            getDiv();
+            aboutDiv.style.display = 'block';
+        }
+        // 學經歷
+        function changeToExps() {
+            // 先取得操作標籤
+            // 在對標籤div操作
+            getDiv();
+            expsDiv.style.display = 'block';
+        }
+        // 聯絡我
+        function changeToContact() {
+            // 在對標籤div操作
+            getDiv();
+            contactDiv.style.display = 'block';
+        }
+
+    </script>
+
+</body>
+
+</html>
